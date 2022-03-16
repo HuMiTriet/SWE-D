@@ -16,6 +16,10 @@ public class ExerciseThree {
     public float getPrice() {
       return this.price;
     };
+
+    public void setPrice(float price) {
+      this.price = price;
+    }
   }
 
   public class ChickenBurger extends Item {
@@ -43,20 +47,6 @@ public class ExerciseThree {
     public Pepsi() {
       this.name = "Pepsi";
       this.price = 12f;
-    }
-  }
-
-  public class Flan extends Item {
-    public Flan() {
-      this.name = "Flan";
-      this.price = 10f;
-    }
-  }
-
-  public class Fruit extends Item {
-    public Fruit() {
-      this.name = "Fruit";
-      this.price = 10f;
     }
   }
 
@@ -91,15 +81,12 @@ public class ExerciseThree {
 
     public void addBeverage();
 
-    public void addDessert();
-
     public Meal getResult();
   }
 
   public class OneMainBuilder implements Builder {
     private boolean mainDishAdded = false;
     private boolean beverageAdded = false;
-    private boolean dessertAdded = false;
 
     private Meal meal = null;
     private Scanner scanner = new Scanner(System.in);
@@ -115,7 +102,7 @@ public class ExerciseThree {
 
     @Override
     public Meal getResult() {
-      if (this.mainDishAdded && this.beverageAdded && this.dessertAdded)
+      if (this.mainDishAdded && this.beverageAdded)
         return this.meal;
       else
         return null;
@@ -143,19 +130,152 @@ public class ExerciseThree {
     }
 
     @Override
-    public void addDessert() {
-      System.out.println("Please select a dessert: ");
-      System.out.println("1. Flan");
-      System.out.println("2. Fruit");
+    public void addBeverage() {
+      System.out.println("Please select a beverage: ");
+      System.out.println("1. Coke");
+      System.out.println("2. Pepsi");
       int choice = scanner.nextInt();
       switch (choice) {
         case 1:
-          this.meal.addItem(new Flan());
-          this.dessertAdded = true;
+          this.meal.addItem(new Coke());
+          this.beverageAdded = true;
           break;
         case 2:
-          this.meal.addItem(new Fruit());
-          this.dessertAdded = true;
+          this.meal.addItem(new Pepsi());
+          this.beverageAdded = true;
+          break;
+        default:
+          System.out.println("Invalid choice");
+          break;
+      }
+    }
+  }
+
+  public class NoSaltOneMainBuilder implements Builder {
+    private boolean mainDishAdded = false;
+    private boolean beverageAdded = false;
+
+    private Meal meal = null;
+    private Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public void reset() {
+      this.mainDishAdded = false;
+      this.beverageAdded = false;
+      this.meal = new Meal();
+    }
+
+    public NoSaltOneMainBuilder() {
+      this.reset();
+    }
+
+    @Override
+    public Meal getResult() {
+      if (this.mainDishAdded && this.beverageAdded)
+        return this.meal;
+      else
+        return null;
+    }
+
+    @Override
+    public void addMainDish() {
+      System.out.println("Please select a Salty main dish: ");
+      System.out.println("1. Chicken Burger");
+      System.out.println("2. Veggie Burger");
+      int choice = scanner.nextInt();
+      switch (choice) {
+        case 1:
+          Item chicken = new ChickenBurger();
+          chicken.setPrice(chicken.getPrice() * 0.9f);
+          this.meal.addItem(chicken);
+          this.mainDishAdded = true;
+          break;
+        case 2:
+          Item Veggie = new VeggieBurger();
+          Veggie.setPrice(Veggie.getPrice() * 0.9f);
+          this.meal.addItem(Veggie);
+          this.mainDishAdded = true;
+          break;
+        default:
+          System.out.println("Invalid choice");
+          break;
+      }
+    }
+
+    @Override
+    public void addBeverage() {
+      System.out.println("Please select a beverage: ");
+      System.out.println("1. Coke");
+      System.out.println("2. Pepsi");
+      int choice = scanner.nextInt();
+      switch (choice) {
+        case 1:
+          this.meal.addItem(new Coke());
+          this.beverageAdded = true;
+          break;
+        case 2:
+          this.meal.addItem(new Pepsi());
+          this.beverageAdded = true;
+          break;
+        default:
+          System.out.println("Invalid choice");
+          break;
+      }
+    }
+  }
+
+  public class TwoMainBuilder implements Builder {
+    private boolean mainDishAdded = false;
+    private boolean secondMainDishAdded = false;
+    private boolean beverageAdded = false;
+    Scanner scanner = new Scanner(System.in);
+
+    Meal meal = null;
+
+    @Override
+    public void reset() {
+      this.mainDishAdded = false;
+      this.secondMainDishAdded = false;
+      this.beverageAdded = false;
+      this.meal = new Meal();
+    }
+
+    public TwoMainBuilder() {
+      this.reset();
+    }
+
+    @Override
+    public void addMainDish() {
+      System.out.println("Please select the FIRST main dish: ");
+      System.out.println("1. Chicken Burger");
+      System.out.println("2. Veggie Burger");
+      int choice = scanner.nextInt();
+      switch (choice) {
+        case 1:
+          this.meal.addItem(new ChickenBurger());
+          this.mainDishAdded = true;
+          break;
+        case 2:
+          this.meal.addItem(new VeggieBurger());
+          this.mainDishAdded = true;
+          break;
+        default:
+          System.out.println("Invalid choice");
+          break;
+      }
+
+      System.out.println("Please select the Second main dish: ");
+      System.out.println("1. Chicken Burger");
+      System.out.println("2. Veggie Burger");
+      choice = scanner.nextInt();
+      switch (choice) {
+        case 1:
+          this.meal.addItem(new ChickenBurger());
+          this.secondMainDishAdded = true;
+          break;
+        case 2:
+          this.meal.addItem(new VeggieBurger());
+          this.secondMainDishAdded = true;
           break;
         default:
           System.out.println("Invalid choice");
@@ -184,6 +304,13 @@ public class ExerciseThree {
       }
     }
 
+    @Override
+    public Meal getResult() {
+      if (this.mainDishAdded && this.secondMainDishAdded && this.beverageAdded)
+        return this.meal;
+      else
+        return null;
+    }
   }
 
   public static void execute() {
@@ -192,7 +319,6 @@ public class ExerciseThree {
 
     builder.addMainDish();
     builder.addBeverage();
-    builder.addDessert();
 
     Meal meal = builder.getResult();
 
@@ -203,5 +329,40 @@ public class ExerciseThree {
       System.out.println("Invalid meal");
     }
 
+    System.out.println("--------------------------------------------------------------------------------");
+
+    builder.reset();
+
+    builder = exerciseThree.new NoSaltOneMainBuilder();
+
+    builder.addMainDish();
+    builder.addBeverage();
+
+    meal = builder.getResult();
+
+    if (meal != null) {
+      meal.showItems();
+      System.out.println("Total Price: " + meal.getTotalPrice());
+    } else {
+      System.out.println("Invalid meal");
+    }
+
+    System.out.println("--------------------------------------------------------------------------------");
+
+    builder.reset();
+
+    builder = exerciseThree.new TwoMainBuilder();
+
+    builder.addMainDish();
+    builder.addBeverage();
+
+    meal = builder.getResult();
+
+    if (meal != null) {
+      meal.showItems();
+      System.out.println("Total Price: " + meal.getTotalPrice());
+    } else {
+      System.out.println("Invalid meal");
+    }
   }
 }
