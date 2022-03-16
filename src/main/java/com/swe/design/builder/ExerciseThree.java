@@ -3,7 +3,7 @@ package com.swe.design.builder;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ExerciseTwo {
+public class ExerciseThree {
 
   abstract class Item {
     public String name;
@@ -187,8 +187,8 @@ public class ExerciseTwo {
   }
 
   public static void execute() {
-    ExerciseTwo exerciseTwo = new ExerciseTwo();
-    Builder builder = exerciseTwo.new OneMainBuilder();
+    ExerciseThree exerciseThree = new ExerciseThree();
+    Builder builder = exerciseThree.new OneMainBuilder();
 
     builder.addMainDish();
     builder.addBeverage();

@@ -1,6 +1,6 @@
 package com.swe.design.factory;
 
-public class ExcerciseOne {
+public class ExerciseOne {
 
   public interface Printer {
     public void print();
@@ -40,7 +40,7 @@ public class ExcerciseOne {
 
   public static void execute() {
 
-    ExcerciseOne p = new ExcerciseOne();
+    ExerciseOne p = new ExerciseOne();
 
     Factory factory = p.new Factory();
 
