@@ -18,18 +18,11 @@ public class ExerciseFour {
   }
 
   class SingletonTwo implements Singleton {
-    private static ExerciseFour ef = new ExerciseFour();
-
-    private SingletonTwo() {
-    }
-
-    public static SingletonTwo getInstance() {
-      return ef.new SingletonTwo();
-    }
   }
 
   public class Factory {
-    private static final Singleton instance = SingletonTwo.getInstance();
+    private static ExerciseFour ef = new ExerciseFour();
+    private static final Singleton instance = ef.new SingletonTwo();
 
     public static Singleton getInstance() {
       return instance;
@@ -43,11 +36,12 @@ public class ExerciseFour {
   }
 
   public class SingletonBuilder implements Builder {
-    private static SingletonTwo instance = SingletonTwo.getInstance();
+    private static ExerciseFour ef = new ExerciseFour();
+    private static SingletonTwo instance = ef.new SingletonTwo();
 
     @Override
     public void reset() {
-      SingletonBuilder.instance = SingletonTwo.getInstance();
+      SingletonBuilder.instance = ef.new SingletonTwo();
     }
 
     @Override
