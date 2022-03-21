@@ -1,12 +1,9 @@
 package com.swe.design;
 
-import com.swe.design.builder.ExerciseThree;
-import com.swe.design.singleton.ExerciseFour;
+import com.swe.design.prototype.ExerciseFive;
 
 public class App {
   public static void main(String[] args) {
-    // ExerciseOne.execute();
-    // ExerciseThree.execute();
-    ExerciseFour.execute();
+    ExerciseFive.execute();
   }
 }

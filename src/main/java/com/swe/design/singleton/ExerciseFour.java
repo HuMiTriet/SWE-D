@@ -17,7 +17,11 @@ public class ExerciseFour {
     }
   }
 
+  // Since this this ExerciseFour we are coding everythin in one file
+  //
   class SingletonTwo implements Singleton {
+    protected SingletonTwo() {
+    }
   }
 
   public class Factory {
@@ -35,6 +39,9 @@ public class ExerciseFour {
     public Singleton create();
   }
 
+  // For this implementation since the object is so simple that there is no
+  // difference between the two implementations, we will use the first one.
+  // -> A very simple builder is then a Factory.
   public class SingletonBuilder implements Builder {
     private static ExerciseFour ef = new ExerciseFour();
     private static SingletonTwo instance = ef.new SingletonTwo();
@@ -51,8 +58,9 @@ public class ExerciseFour {
   }
 
   public static void execute() {
-    Singleton s1 = SingletonOne.getInstance();
+
     Singleton s2 = Factory.getInstance();
+    Singleton s1 = SingletonOne.getInstance();
 
     ExerciseFour ef = new ExerciseFour();
     Builder b = ef.new SingletonBuilder();
