@@ -1,59 +1,107 @@
 package com.swe.design;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Review {
   public abstract class Shape {
     private String type;
 
+    public Shape() {
+    }
+
+    public Shape(Shape source) {
+      if (source != null) {
+        this.type = source.type;
+      }
+    }
+
+    public abstract Shape clone();
+
     public String getType() {
       return type;
     }
+
   }
 
   public class Circle extends Shape {
+
     public Circle() {
-      super.type = "Circle";
+      System.out.println("Very expensive");
+      super.type = "circle";
+    }
+
+    public Circle(Circle source) {
+      super(source);
+    }
+
+    @Override
+    public Shape clone() {
+      return new Circle(this);
     }
   }
 
   public class Square extends Shape {
     public Square() {
-      super.type = "Square";
+      System.out.println("Very expensive");
+      super.type = "square";
+    }
+
+    public Square(Square source) {
+      super(source);
+    }
+
+    @Override
+    public Shape clone() {
+      return new Square(this);
     }
   }
 
   public class Rectangle extends Shape {
     public Rectangle() {
-      super.type = "Retangle";
+      System.out.println("Very expensive");
+      super.type = "rectangle";
+    }
+
+    public Rectangle(Rectangle source) {
+      super(source);
+    }
+
+    @Override
+    public Shape clone() {
+      return new Rectangle(this);
     }
   }
 
-  public class ShapeFactory {
-    public Shape getShape(String shapeType) {
-      if (shapeType == null) {
-        return null;
-      }
-      if (shapeType.equalsIgnoreCase("CIRCLE")) {
-        return new Circle();
-      } else if (shapeType.equalsIgnoreCase("SQUARE")) {
-        return new Square();
-      } else if (shapeType.equalsIgnoreCase("RECTANGLE")) {
-        return new Rectangle();
-      } else
-        return null;
+  public class Retristry {
+    private Map<String, Shape> cache = new HashMap<>();
+
+    public Retristry() {
+      this.cache.put("circle", new Circle());
+      this.cache.put("square", new Square());
+      this.cache.put("rectangle", new Rectangle());
+    }
+
+    public void putShape(String key, Shape shape) {
+      this.cache.put(key, shape);
+    }
+
+    public Shape getShape(String key) {
+      return this.cache.get(key).clone();
     }
   }
 
   public static void execute() {
     Review r = new Review();
-    ShapeFactory shapeFactory = r.new ShapeFactory();
-    Shape shape1 = shapeFactory.getShape("CIRCLE");
-    Shape shape2 = shapeFactory.getShape("SQUARE");
-    Shape shape3 = shapeFactory.getShape("RECTANGLE");
-    if (shape1 != null)
-      System.out.println(shape1.getType());
-    if (shape2 != null)
-      System.out.println(shape2.getType());
-    if (shape3 != null)
-      System.out.println(shape3.getType());
+    Retristry retristry = r.new Retristry();
+
+    Shape circle = retristry.getShape("circle");
+    System.out.println(circle.getType());
+
+    Shape square = retristry.getShape("square");
+    System.out.println(square.getType());
+
+    Shape rectangle = retristry.getShape("rectangle");
+    System.out.println(rectangle.getType());
   }
 }
