@@ -4,6 +4,6 @@ import com.swe.design.prototype.ExerciseFive;
 
 public class App {
   public static void main(String[] args) {
-    ExerciseFive.execute();
+    Review.execute();
   }
 }

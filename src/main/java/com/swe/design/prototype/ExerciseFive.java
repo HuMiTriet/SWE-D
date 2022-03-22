@@ -87,5 +87,6 @@ public class ExerciseFive {
 
     System.out.println(testTwo.getX());
     System.out.println(testTwo.getY());
+    System.out.println(testTwo.getRadius());
   }
 }
