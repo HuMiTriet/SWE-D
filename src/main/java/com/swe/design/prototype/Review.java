@@ -76,7 +76,7 @@ public class Review {
   public class Retristry {
     private Map<String, Shape> cache = new HashMap<>();
 
-    public Retristry() {
+    public void loadCache() {
       this.cache.put("circle", new Circle());
       this.cache.put("square", new Square());
       this.cache.put("rectangle", new Rectangle());
@@ -94,6 +94,7 @@ public class Review {
   public static void execute() {
     Review r = new Review();
     Retristry retristry = r.new Retristry();
+    retristry.loadCache();
 
     Shape circle = retristry.getShape("circle");
     System.out.println(circle.getType());
@@ -103,5 +104,8 @@ public class Review {
 
     Shape rectangle = retristry.getShape("rectangle");
     System.out.println(rectangle.getType());
+
+    Shape rectangle2 = retristry.getShape("rectangle");
+    System.out.println(rectangle2.getType());
   }
 }
