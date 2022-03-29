@@ -1,4 +1,4 @@
-package com.swe.design.WIP;
+package com.swe.design.composition;
 
 public class ClientWip {
   public static void execute() {

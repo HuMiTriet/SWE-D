@@ -1,4 +1,4 @@
-package com.swe.design.WIP.Tournament;
+package com.swe.design.composition.tournament.old_fashion_tree;
 
 public class ClientTournament {
   public static void execute() {

@@ -1,4 +1,4 @@
-package com.swe.design;
+package com.swe.design.prototype;
 
 import java.util.HashMap;
 import java.util.Map;
