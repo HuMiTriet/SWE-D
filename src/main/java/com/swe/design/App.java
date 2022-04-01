@@ -1,9 +1,9 @@
 package com.swe.design;
 
-import com.swe.design.decorator.ClientDecorator;
+import com.swe.design.facade.ClientFacade;
 
 public class App {
   public static void main(String[] args) {
-    ClientDecorator.execute();
+    ClientFacade.execute();
   }
 }
