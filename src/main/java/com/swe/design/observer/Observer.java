@@ -3,6 +3,13 @@ package com.swe.design.observer;
 /**
  * Observer
  */
-interface Observer {
-  void update();
+abstract class Observer {
+  protected Subject subject;
+
+  public Observer(Subject subject) {
+    this.subject = subject;
+  }
+
+  void update() {
+  };
 }

@@ -2,7 +2,7 @@ package com.swe.design.observer;
 
 public class ClientObserver {
   public static void execcute() {
-    Source source = new SourceScanner();
+    Subject source = new SubjectScanner();
 
     Observer upper = new ObserverUpper(source);
 

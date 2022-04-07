@@ -1,6 +1,6 @@
 package com.swe.design.observer;
 
-interface Source {
+interface Subject {
   void attach(Observer o);
 
   void execute();

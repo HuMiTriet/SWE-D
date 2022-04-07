@@ -3,7 +3,7 @@ package com.swe.design.observer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SourceScanner implements Source {
+public class SubjectScanner implements Subject {
   private String state;
   private int index = 1;
   private ArrayList<Observer> ObserverList = new ArrayList<Observer>();
@@ -17,11 +17,14 @@ public class SourceScanner implements Source {
   public void execute() {
     Scanner scanner = new Scanner(System.in);
 
-    System.out.println("Please enter sth: ");
+    System.out.println("Please enter sth: (press exit to quit) ");
 
     while (scanner.hasNextLine()) {
       index++;
       state = scanner.nextLine();
+      if (state.equalsIgnoreCase("quit")) {
+        break;
+      }
       for (Observer o : ObserverList) {
         o.update();
       }
