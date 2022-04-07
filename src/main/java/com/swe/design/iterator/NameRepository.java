@@ -4,6 +4,7 @@ package com.swe.design.iterator;
 import java.util.Arrays;
 
 public class NameRepository {
+
   private String[] names = { "D", "A", "C", "B" };
 
   public Iterator getIterator() {
@@ -39,6 +40,7 @@ public class NameRepository {
     public OrderedIterator() {
       Arrays.sort(names);
     }
+
   }
 
 }
