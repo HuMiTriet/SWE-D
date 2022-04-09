@@ -3,7 +3,7 @@ package com.swe.design.behaviorial.observer.factoring_guru_example;
 import java.util.ArrayList;
 
 public class EventManager {
-  ArrayList<EventListener> listeners = new ArrayList<>();
+  private ArrayList<EventListener> listeners = new ArrayList<>();
 
   public void subscribe(EventListener e) {
     listeners.add(e);
@@ -14,9 +14,7 @@ public class EventManager {
   }
 
   public void notifySubscribers() {
-    for (EventListener eventListener : listeners) {
-      eventListener.update();
-    }
+    listeners.forEach(listener -> listener.update());
   }
 
 }

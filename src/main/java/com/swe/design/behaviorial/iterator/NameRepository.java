@@ -7,10 +7,12 @@ public class NameRepository implements ItertableCollection {
 
   private String[] names = { "D", "A", "C", "B" };
 
+  @Override
   public Iterator getIterator() {
     return new NameIterator();
   }
 
+  @Override
   public Iterator getOrderedIterator() {
     return new OrderedIterator();
   }
