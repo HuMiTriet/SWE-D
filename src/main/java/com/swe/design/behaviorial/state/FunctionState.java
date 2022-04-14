@@ -33,7 +33,9 @@ public class FunctionState implements State {
 
   @Override
   public void unhold(Keyboard keyboard, Key key) {
+
     switch (key) {
+
       case Fn:
         keyboard.currentState = new InitialState();
         break;
