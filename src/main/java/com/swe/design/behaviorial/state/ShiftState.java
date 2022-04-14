@@ -13,8 +13,14 @@ public class ShiftState implements State {
 
   @Override
   public void hold(Keyboard keyboard, Key key) {
-    if (key != Key.Shift) {
-      System.out.println("holding " + key.toString().toUpperCase());
+    switch (key) {
+      case Fn:
+        keyboard.currentState = new FunctionShiftState();
+        break;
+
+      default:
+        System.out.println("holding " + key.toString().toUpperCase());
+        break;
     }
   }
 

@@ -4,26 +4,60 @@ public class ClientState {
   public static void execute() {
     Keyboard keyboard = new Keyboard();
 
-    keyboard.tap(Key.Q);
+    keyboard.hold(Key.Fn);
 
-    keyboard.tap(Key.CapLocks);
+    keyboard.tap(Key.F11);
 
-    keyboard.tap(Key.Q);
+    keyboard.tap(Key.F12);
 
-    keyboard.tap(Key.CapLocks);
+    keyboard.unhold(Key.Fn);
 
-    keyboard.tap(Key.Q);
+    keyboard.tap(Key.F12);
 
     System.out.println("--------------------------------------------------------------------------------");
 
-    keyboard.tap(Key.Q); // ini
+    keyboard.hold(Key.Fn);
 
-    keyboard.hold(Key.Shift); // Shift
+    keyboard.hold(Key.Shift);
 
-    keyboard.tap(Key.Q); // shift
+    keyboard.tap(Key.F11);
 
-    keyboard.unhold(Key.Shift); // ini
+    keyboard.tap(Key.F12);
 
-    keyboard.tap(Key.Q); // ini
+    keyboard.unhold(Key.Fn);
+
+    keyboard.unhold(Key.Shift);
+
+    keyboard.tap(Key.F12);
+
+    System.out.println("--------------------------------------------------------------------------------");
+
+    keyboard.tap(Key.CapLocks);
+
+    keyboard.hold(Key.Fn);
+
+    keyboard.tap(Key.F11);
+
+    keyboard.tap(Key.F12);
+
+    keyboard.unhold(Key.Fn);
+
+    keyboard.tap(Key.CapLocks);
+
+    keyboard.tap(Key.F12);
+
+    System.out.println("--------------------------------------------------------------------------------");
+
+    keyboard.tap(Key.CapLocks);
+
+    keyboard.hold(Key.Shift);
+
+    keyboard.hold(Key.Fn);
+
+    keyboard.tap(Key.F11);
+
+    keyboard.tap(Key.F12);
+
   }
+
 }

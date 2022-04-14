@@ -1,28 +1,29 @@
 package com.swe.design.behaviorial.state;
 
-public class InitialState implements State {
+public class FunctionState implements State {
+
   @Override
   public void tap(Keyboard keyboard, Key key) {
     switch (key) {
-      case CapLocks:
-        keyboard.currentState = new CaplockState();
+      case F11:
+        System.out.println("At F11 VOLUME DOWN");
+        break;
+
+      case F12:
+        System.out.println("At F11 VOLUME Up");
         break;
 
       default:
-        System.out.println("q");
         break;
     }
+
   }
 
   @Override
   public void hold(Keyboard keyboard, Key key) {
     switch (key) {
-      case Fn:
-        keyboard.currentState = new CaplockShift();
-        break;
-
       case Shift:
-        keyboard.currentState = new ShiftState();
+        keyboard.currentState = new FunctionShiftState();
         break;
 
       default:
@@ -32,8 +33,14 @@ public class InitialState implements State {
 
   @Override
   public void unhold(Keyboard keyboard, Key key) {
-    if (key == Key.Shift) {
-      keyboard.currentState = new InitialState();
+    switch (key) {
+      case Fn:
+        keyboard.currentState = new InitialState();
+        break;
+
+      default:
+        break;
     }
   }
+
 }
