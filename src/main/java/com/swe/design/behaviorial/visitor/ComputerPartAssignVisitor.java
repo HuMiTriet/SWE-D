@@ -8,12 +8,14 @@ public class ComputerPartAssignVisitor implements ComputerPartVisitor {
   @Override
   public void visit(Computer computer) {
     computer.id = Double.toString(level + position);
+    double temp = position;
     position = 0.0;
     level++;
     for (int i = 0; i < computer.parts.size(); i++) {
       position += 0.1;
       computer.parts.get(i).accept(this);
     }
+    position = temp;
     level--;
   }
 

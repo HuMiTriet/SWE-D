@@ -14,8 +14,10 @@ public class ClientVisitor {
     Keyboard subKeyboard = new Keyboard("");
 
     Monitor subSubSubMonitor = new Monitor("");
+    Keyboard subSubSubKeyboard = new Keyboard("");
 
     subSubComputer.addPart(subSubSubMonitor);
+    subSubComputer.addPart(subSubSubKeyboard);
 
     subComputer.addPart(subSubComputer);
     subComputer.addPart(subMouse);
