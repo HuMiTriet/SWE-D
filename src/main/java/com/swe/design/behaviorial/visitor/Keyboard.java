@@ -8,7 +8,7 @@ public class Keyboard extends ComputerPart {
 
   @Override
   public void accept(ComputerPartVisitor computerPartVisitor) {
-    computerPartVisitor.visitKeyboard(this);
+    computerPartVisitor.visit(this);
   }
 
 }

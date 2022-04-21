@@ -8,6 +8,6 @@ public class BluetoothKeyboard extends ComputerPart {
 
   @Override
   public void accept(ComputerPartVisitor computerPartVisitor) {
-    computerPartVisitor.visitBluetoothKeyboard(this);
+    computerPartVisitor.visit(this);
   }
 }

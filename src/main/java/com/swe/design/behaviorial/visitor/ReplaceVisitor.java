@@ -5,7 +5,7 @@ public class ReplaceVisitor implements ComputerPartVisitor {
   boolean passedAKeyboard = false;
 
   @Override
-  public void visitComputer(Computer computer) {
+  public void visit(Computer computer) {
 
     for (int i = 0; i < computer.parts.size(); i++) {
       computer.parts.get(i).accept(this);
@@ -19,20 +19,20 @@ public class ReplaceVisitor implements ComputerPartVisitor {
   }
 
   @Override
-  public void visitMouse(Mouse mouse) {
+  public void visit(Mouse mouse) {
   }
 
   @Override
-  public void visitMonitor(Monitor monitor) {
+  public void visit(Monitor monitor) {
   }
 
   @Override
-  public void visitKeyboard(Keyboard keyboard) {
+  public void visit(Keyboard keyboard) {
     passedAKeyboard = true;
   }
 
   @Override
-  public void visitBluetoothKeyboard(BluetoothKeyboard bluetoothKeyboard) {
+  public void visit(BluetoothKeyboard bluetoothKeyboard) {
   }
 
 }

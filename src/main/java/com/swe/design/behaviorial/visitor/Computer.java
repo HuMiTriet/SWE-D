@@ -19,7 +19,7 @@ public class Computer extends ComputerPart {
 
   @Override
   public void accept(ComputerPartVisitor computerPartVisitor) {
-    computerPartVisitor.visitComputer(this);
+    computerPartVisitor.visit(this);
   }
 
   public void deepCopy(Computer other) {

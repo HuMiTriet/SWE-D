@@ -2,13 +2,13 @@ package com.swe.design.behaviorial.visitor;
 
 interface ComputerPartVisitor {
 
-  void visitComputer(Computer Computer);
+  void visit(Computer Computer);
 
-  void visitKeyboard(Keyboard keyboard);
+  void visit(Keyboard keyboard);
 
-  void visitBluetoothKeyboard(BluetoothKeyboard bluetoothKeyboard);
+  void visit(BluetoothKeyboard bluetoothKeyboard);
 
-  void visitMonitor(Monitor monitor);
+  void visit(Monitor monitor);
 
-  void visitMouse(Mouse mouse);
+  void visit(Mouse mouse);
 }

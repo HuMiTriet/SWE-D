@@ -8,7 +8,7 @@ public class Monitor extends ComputerPart {
 
   @Override
   public void accept(ComputerPartVisitor computerPartVisitor) {
-    computerPartVisitor.visitMonitor(this);
+    computerPartVisitor.visit(this);
   }
 
 }
