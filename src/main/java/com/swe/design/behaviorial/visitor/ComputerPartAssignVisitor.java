@@ -6,7 +6,7 @@ public class ComputerPartAssignVisitor implements ComputerPartVisitor {
   private double position = 0.0;
 
   @Override
-  public void visitComputer(Computer computer) {
+  public void visit(Computer computer) {
     computer.id = Double.toString(level + position);
     position = 0.0;
     level++;
@@ -18,23 +18,23 @@ public class ComputerPartAssignVisitor implements ComputerPartVisitor {
   }
 
   @Override
-  public void visitMouse(Mouse mouse) {
+  public void visit(Mouse mouse) {
     mouse.id = Double.toString(level + position);
   }
 
   @Override
-  public void visitMonitor(Monitor monitor) {
+  public void visit(Monitor monitor) {
     monitor.id = Double.toString(level + position);
 
   }
 
   @Override
-  public void visitKeyboard(Keyboard keyboard) {
+  public void visit(Keyboard keyboard) {
     keyboard.id = Double.toString(level + position);
   }
 
   @Override
-  public void visitBluetoothKeyboard(BluetoothKeyboard bluetoothKeyboard) {
+  public void visit(BluetoothKeyboard bluetoothKeyboard) {
     bluetoothKeyboard.id = Double.toString(level + position);
   }
 }

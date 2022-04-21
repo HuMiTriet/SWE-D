@@ -12,7 +12,7 @@ public class ComputerPartDisplayVisitor implements ComputerPartVisitor {
   }
 
   @Override
-  public void visitComputer(Computer computer) {
+  public void visit(Computer computer) {
     System.out.println(getSpaces() + "COMPUTER: " + computer.id);
     level++;
     for (int i = 0; i < computer.parts.size(); i++) {
@@ -22,25 +22,25 @@ public class ComputerPartDisplayVisitor implements ComputerPartVisitor {
   }
 
   @Override
-  public void visitMouse(Mouse mouse) {
+  public void visit(Mouse mouse) {
     System.out.println(getSpaces() + "MOUSE: " + mouse.id);
 
   }
 
   @Override
-  public void visitMonitor(Monitor monitor) {
+  public void visit(Monitor monitor) {
     System.out.println(getSpaces() + "MONITOR" + monitor.id);
 
   }
 
   @Override
-  public void visitKeyboard(Keyboard keyboard) {
+  public void visit(Keyboard keyboard) {
     System.out.println(getSpaces() + "KEYBOARD: " + keyboard.id);
 
   }
 
   @Override
-  public void visitBluetoothKeyboard(BluetoothKeyboard bluetoothKeyboard) {
+  public void visit(BluetoothKeyboard bluetoothKeyboard) {
     System.out.println(getSpaces() + "BLUETOOTH_KEYBOARD: " + bluetoothKeyboard.id);
   }
 }

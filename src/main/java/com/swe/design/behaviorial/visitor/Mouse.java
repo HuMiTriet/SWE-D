@@ -8,7 +8,7 @@ public class Mouse extends ComputerPart {
 
   @Override
   public void accept(ComputerPartVisitor computerPartVisitor) {
-    computerPartVisitor.visitMouse(this);
+    computerPartVisitor.visit(this);
 
   }
 }
