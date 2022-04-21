@@ -1,11 +1,10 @@
 package com.swe.design;
 
-import com.swe.design.behaviorial.state.ClientState;
+import com.swe.design.behaviorial.visitor.ClientVisitor;
 
 public class App {
 
   public static void main(String[] args) {
-    ClientState.execute();
+    ClientVisitor.execute(args);
   }
-
 }
